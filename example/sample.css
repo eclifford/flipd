@@ -1,0 +1,15 @@
+#feature1, #feature2, #feature3 {
+	display: none;
+}
+
+.fp-feature1 #feature1 {
+	display: block;
+}
+
+.fp-feature2 #feature2 {
+	display: block;
+}
+
+.fp-feature3 #feature3 {
+	display: block;
+}

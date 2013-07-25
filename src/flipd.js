@@ -20,22 +20,26 @@ window.Flipd = (function(window, document, undefined) {
       var featureKeys = queryString.split(',');
       for (var i = 0; i < featureKeys.length; i++) {
         features[featureKeys[i]] = true;
-      };    
+      }
     }
   }
 
   // Append feature flag classes to body tag
   function setCssClasses() {
-    // Set CSS classes on HTML for features
-    var body = document.body;
-    for(var feature in features) {
-      body.className = body.className + " " + feature;
-    }   
+    window.onload = function() {
+      // Set CSS classes on HTML for features
+      var body = document.body;
+      for(var feature in features) {
+        if(features[feature]) {
+          body.className = (body.className + " " + CSS_PREFIX + feature).trim();
+        }
+      }
+    };
   }
 
   // Retrieve query string parameter by name
   function getParameterByName(name) {
-    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    var match = new RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
   }
 
@@ -61,5 +65,5 @@ window.Flipd = (function(window, document, undefined) {
     remove: function() {
       features[key] = false;
     }
-  }
+  };
 })(this, this.document);
