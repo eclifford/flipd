@@ -30,12 +30,19 @@ module.exports = function(grunt) {
           helpers: 'spec/helpers/*.js'
         }
       }
+    },
+    bump: {
+      options: {
+        push: true,
+        pushTo: 'origin'
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-bump');
 
   grunt.registerTask('default', ['watch']);
   grunt.registerTask('build', ['jasmine', 'uglify']);

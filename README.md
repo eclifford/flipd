@@ -2,7 +2,7 @@
 
 ## About
 
-Flipd is a very simple JavaScript feature flag library. It provides an easy to use mechanism for on/off blocks of code per feature as well as appending class names pertaining to activated features to the DOM. 
+Flipd is a very simple JavaScript feature flag library. Flipd makes enabling and disabling blocks of code easy in Continuous Integration type environments.
 
 ## Features
 
